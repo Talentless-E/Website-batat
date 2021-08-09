@@ -11,10 +11,10 @@
           rel="stylesheet"/>
 </head>
 <body>
-<div class="content-container">
+<!--<div class="content-container">-->
     <div class="main-page">
         <div class="wrapper">
-            <div class="main-title">
+            <div class="main-page__title">
                 <img class="logo" src="img/logo.png" alt="img"/>
                 <div class="main-page__contact">
                     <span class="main-page__number">8 900 000-00-00</span>
@@ -101,7 +101,7 @@
     <div class="howItWorks-page">
         <div class="wrapper">
             <div class="howItWorks-page__header">
-                <h1>Как это работает</h1>
+                Как это работает
             </div>
             <div class="howItWorks-page__content">
                 <div class="howItWorks-page__circle-top-row">
@@ -139,6 +139,14 @@
     <div class="menu-page">
         <div class="wrapper">
             <div class="menu-page__page-header">Виды меню</div>
+            <div class="menu-page__dropdown-button">
+                <button class="dropdown-button" onclick="dropdownFunc()">Палео-диета <i id="arrow" class="arrow"></i></button>
+                <div class="dropdown-content" id="dropdown-menu">
+                    <a href="#">диета аип</a>
+                    <a href="#">Стол №5 по певзнеру</a>
+                    <a href="#">вегетарианство</a>
+                </div>
+            </div>
             <div class="menu-page__buttons-row">
                 <button>Палео-диета</button>
                 <button>Диета аип</button>
@@ -152,7 +160,7 @@
                         <h1>Завтрак</h1>
                         <p>Омлет на пару</p>
                     </div>
-                    <div class="dinner" style="margin: 0 40px;">
+                    <div class="dinner">
                         <img src="img/dinner.svg" alt="img"/>
                         <h1>Обед</h1>
                         <ul style="margin: 0 40px;">
@@ -165,7 +173,7 @@
                         <h1>Полдник</h1>
                         <p>Овощной смузи</p>
                     </div>
-                    <div class="late-dinner" style="margin: 0 40px;">
+                    <div class="late-dinner">
                         <img src="img/lateDinner.svg" alt="img"/>
                         <h1>Ужин</h1>
                         <p>Свекольные биточки с рисом</p>
@@ -203,6 +211,14 @@
                 <div class="order-page__menu-header">
                     <h1 class="order-menu-header">Выбор меню</h1>
                 </div>
+                <div class="order-page__dropdown-button">
+                    <button class="order-dropdown-button" onclick="orderDropdownFunc()">Палео-диета <i id="order-arrow" class="arrow"></i></button>
+                    <div class="order-dropdown-content" id="order-dropdown-menu">
+                        <a href="">диета аип</a>
+                        <a href="">Стол №5 по певзнеру</a>
+                        <a href="">вегетарианство</a>
+                    </div>
+                </div>
                 <div class="order-page__buttons-row">
                     <button>
                         ПАЛЕО-ДИЕТА
@@ -227,19 +243,19 @@
 
                     <div class="order-page__line-text-container">
                         <div class="order-page__line-text">
-                            1 день <br/><span>попробовать</span>
+                            1 <span>день</span> <br/><span>попробовать</span>
+                        </div>
+                        <div class="order-page__line-text" >
+                            5 <span>дней</span> <br/><span>будни</span>
                         </div>
                         <div class="order-page__line-text">
-                            5 дней <br/><span>будни</span>
+                            7 <span>дней</span> <br/><span>неделя</span>
                         </div>
                         <div class="order-page__line-text">
-                            7 дней <br/><span>неделя</span>
+                            14 <span>дней</span> <br/><span>2 недели</span>
                         </div>
                         <div class="order-page__line-text">
-                            14 дней <br/><span>2 недели</span>
-                        </div>
-                        <div class="order-page__line-text">
-                            30 дней <br/><span>весь месяц</span>
+                            30 <span>дней</span> <br/><span>весь месяц</span>
                         </div>
                     </div>
                 </div>
@@ -301,6 +317,33 @@
             </div>
         </div>
     </div>
-</div>
+<!--</div>-->
+<script>
+    function dropdownFunc(){
+        let x = document.getElementById("dropdown-menu");
+        let arrow = document.getElementById("arrow");
+        if (x.style.display === 'none')
+        {
+            arrow.style.transform = 'rotate(-135deg)';
+            x.style.display = 'flex';
+        } else {
+            x.style.display = 'none'
+            arrow.style.transform = 'rotate(45deg)'
+        }
+    }
+    function orderDropdownFunc(){
+        let x = document.getElementById("order-dropdown-menu");
+        let arrow = document.getElementById("order-arrow");
+        if (x.style.display === 'none')
+        {
+            arrow.style.transform = 'rotate(-135deg)';
+            x.style.display = 'flex';
+        } else {
+            x.style.display = 'none'
+            arrow.style.transform = 'rotate(45deg)'
+        }
+    }
+
+</script>
 </body>
 </html>
