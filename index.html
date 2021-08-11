@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Raleway&display=swap"
           rel="stylesheet"/>
+    <script src="js/main.js"></script>
 </head>
 <body>
 <div class="main-page">
@@ -142,19 +143,19 @@
     <div class="wrapper">
         <div class="menu-page__page-header">Виды меню</div>
         <div class="menu-page__dropdown-button">
-            <button class="dropdown-button" onclick="dropdownFunc()">Палео-диета <i id="arrow" class="arrow"></i>
+            <button class="dropdown-button" id="pal-down" onclick="dropdownFunc()">Палео-диета <i id="arrow" class="arrow"></i>
             </button>
             <div class="dropdown-content" id="dropdown-menu">
-                <a href="#">диета аип</a>
-                <a href="#">Стол №5 по певзнеру</a>
-                <a href="#">вегетарианство</a>
+                <a href="" id="aip-down">диета аип</a>
+                <a href="" id="table-down">Стол №5 по певзнеру</a>
+                <a href="" id="veg-down">вегетарианство</a>
             </div>
         </div>
         <div class="menu-page__buttons-row">
-            <button>Палео-диета</button>
-            <button>Диета аип</button>
-            <button>Стол №5 по певзнеру</button>
-            <button>вегетарианство</button>
+            <button id="pal" onclick="changeText(this.id)">Палео-диета</button>
+            <button id="aip" onclick="changeText(this.id)">Диета аип</button>
+            <button id="table" onclick="changeText(this.id)">Стол №5 по певзнеру</button>
+            <button id="veg" onclick="changeText(this.id)">вегетарианство</button>
         </div>
         <div class="menu-page__content-container">
             <div class="menu-page__dish-container">
@@ -184,14 +185,12 @@
             </div>
             <div class="menu-page__description-container">
                 <div class="menu-page__description-top">
-                    <div class="menu-page__description-header">Палео-диета</div>
-                    <div class="menu-page__description-text">
-                        <p>
-                            Палео-диета – интерпретация рациона питания наших предков, живших
-                            более 10 тыс. лет назад. Результат для современных последователей –
-                            подтянутая фигура и меньше проблем со здоровьем, просто соблюдая
-                            палео-меню на неделю.
-                        </p>
+                    <div class="menu-page__description-header" id="desc-head">Палео-диета</div>
+                    <div class="menu-page__description-text" id="desc-text">
+                        Палео-диета – интерпретация рациона питания наших предков, живших
+                        более 10 тыс. лет назад. Результат для современных последователей –
+                        подтянутая фигура и меньше проблем со здоровьем, просто соблюдая
+                        палео-меню на неделю.
                     </div>
                 </div>
                 <div class="menu-page__description-bottom">
@@ -214,64 +213,66 @@
             <div class="order-page__menu-header">
                 <h1 class="order-menu-header">Выбор меню</h1>
             </div>
-            <div class="order-page__dropdown-button">
-                <button class="order-dropdown-button" onclick="orderDropdownFunc()">Палео-диета <i id="order-arrow"
-                                                                                                   class="arrow"></i>
-                </button>
-                <div class="order-dropdown-content" id="order-dropdown-menu">
-                    <a href="">диета аип</a>
-                    <a href="">Стол №5 по певзнеру</a>
-                    <a href="">вегетарианство</a>
-                </div>
-            </div>
-            <div class="order-page__buttons-row">
-                <button>
-                    ПАЛЕО-ДИЕТА
-                </button>
-                <button>ДИЕТА АИП</button>
-                <button>СТОЛ №5 ПО ПЕВЗНЕРУ</button>
-                <button>ВЕГЕТАРИАНСТВО</button>
-            </div>
-            <div class="order-page__days-header">
-                <h1 class="order-days-header">Количество дней</h1>
-            </div>
-            <div class="order-page_config-container">
-                <div class="order-page__line-container">
-                    <div class="order-page__circle"></div>
-                    <div class="order-page__circle"></div>
-                    <div class="order-page__circle"></div>
-                    <div class="order-page__circle"></div>
-                    <div class="order-page__circle"></div>
-
-                </div>
-
-
-                <div class="order-page__line-text-container">
-                    <div class="order-page__line-text">
-                        1 <span>день</span> <br/><span>попробовать</span>
-                    </div>
-                    <div class="order-page__line-text">
-                        5 <span>дней</span> <br/><span>будни</span>
-                    </div>
-                    <div class="order-page__line-text">
-                        7 <span>дней</span> <br/><span>неделя</span>
-                    </div>
-                    <div class="order-page__line-text">
-                        14 <span>дней</span> <br/><span>2 недели</span>
-                    </div>
-                    <div class="order-page__line-text">
-                        30 <span>дней</span> <br/><span>весь месяц</span>
+            <!--<form action="https://formspree.io/f/xjvjpbok"
+                  method="POST" id="form">-->
+            <form>
+                <div class="order-page__dropdown-button">
+                    <button class="order-dropdown-button" onclick="orderDropdownFunc()">Палео-диета <i id="order-arrow"
+                                                                                                       class="arrow"></i>
+                    </button>
+                    <div class="order-dropdown-content" id="order-dropdown-menu">
+                        <a href="">диета аип</a>
+                        <a href="">Стол №5 по певзнеру</a>
+                        <a href="">вегетарианство</a>
                     </div>
                 </div>
-            </div>
-            <div class="order-page__user-contacts">
-                <input type="text" placeholder="Ваше имя">
-                <input type="tel" placeholder="Ваш телефон">
-            </div>
-            <div class="order-page__order-button">
-                <button class="order-page_button">Заказать</button>
-            </div>
 
+                <div class="order-page__buttons-row">
+                    <button value="Палео-диета" onclick="checkValue(this.value)" id="Paleo">
+                        ПАЛЕО-ДИЕТА
+                    </button>
+                    <button value="Диета аип">ДИЕТА АИП</button>
+                    <button value="Стол №5 по певзнеру">СТОЛ №5 ПО ПЕВЗНЕРУ</button>
+                    <button value="Вегетарианство">ВЕГЕТАРИАНСТВО</button>
+                </div>
+                <div class="order-page__days-header">
+                    <h1 class="order-days-header">Количество дней</h1>
+                </div>
+                <div class="order-page_config-container">
+                    <div class="order-page__line-container">
+                        <div class="order-page__circle"></div>
+                        <div class="order-page__circle"></div>
+                        <div class="order-page__circle"></div>
+                        <div class="order-page__circle"></div>
+                        <div class="order-page__circle"></div>
+                    </div>
+                    <div class="order-page__line-text-container">
+                        <div class="order-page__line-text">
+                            1 <span>день</span> <br/><span>попробовать</span>
+                        </div>
+                        <div class="order-page__line-text">
+                            5 <span>дней</span> <br/><span>будни</span>
+                        </div>
+                        <div class="order-page__line-text">
+                            7 <span>дней</span> <br/><span>неделя</span>
+                        </div>
+                        <div class="order-page__line-text">
+                            14 <span>дней</span> <br/><span>2 недели</span>
+                        </div>
+                        <div class="order-page__line-text">
+                            30 <span>дней</span> <br/><span>весь месяц</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-page__user-contacts">
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (999) 999 99 99" required>
+                </div>
+                <div class="order-page__order-button">
+                    <button type="submit" class="order-page_button">Заказать</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -322,31 +323,7 @@
         </div>
     </div>
 </div>
-<script>
-    function dropdownFunc() {
-        let x = document.getElementById("dropdown-menu");
-        let arrow = document.getElementById("arrow");
-        if (x.style.display === 'none') {
-            arrow.style.transform = 'rotate(-135deg)';
-            x.style.display = 'flex';
-        } else {
-            x.style.display = 'none'
-            arrow.style.transform = 'rotate(45deg)'
-        }
-    }
-
-    function orderDropdownFunc() {
-        let x = document.getElementById("order-dropdown-menu");
-        let arrow = document.getElementById("order-arrow");
-        if (x.style.display === 'none') {
-            arrow.style.transform = 'rotate(-135deg)';
-            x.style.display = 'flex';
-        } else {
-            x.style.display = 'none'
-            arrow.style.transform = 'rotate(45deg)'
-        }
-    }
-
-</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
