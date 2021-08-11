@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Raleway&display=swap"
           rel="stylesheet"/>
-    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="main-page">
@@ -28,7 +28,7 @@
         </div>
         <div class="main-page__bottom-content">
             <div class="main-page__orderButton">
-                <button class="orderButton">Заказать</button>
+                <button class="orderButton" id="main-button">Заказать</button>
             </div>
             <div class="main-page__icons-row">
                 <img class="main-page__icon" src="img/Frame%20266.svg" alt="img"/>
@@ -143,12 +143,12 @@
     <div class="wrapper">
         <div class="menu-page__page-header">Виды меню</div>
         <div class="menu-page__dropdown-button">
-            <button class="dropdown-button" id="pal-down" onclick="dropdownFunc()">Палео-диета <i id="arrow" class="arrow"></i>
+            <button class="dropdown-button" id="pal-down" onclick="dropdownFunc();changeText(this.id)">Палео-диета <i id="arrow" class="arrow"></i>
             </button>
             <div class="dropdown-content" id="dropdown-menu">
-                <a href="" id="aip-down">диета аип</a>
-                <a href="" id="table-down">Стол №5 по певзнеру</a>
-                <a href="" id="veg-down">вегетарианство</a>
+                <a id="aip-down" onclick="changeText(this.id)">диета аип</a>
+                <a id="table-down" onclick="changeText(this.id)">Стол №5 по певзнеру</a>
+                <a id="veg-down" onclick="changeText(this.id)">вегетарианство</a>
             </div>
         </div>
         <div class="menu-page__buttons-row">
@@ -197,14 +197,14 @@
                     <div class="menu-page__description-diet-kkal">1200/1600 ккал</div>
                     <div class="menu-page__diet-price">Цена от 1400 в день</div>
                     <div class="menu-page__description-button">
-                        <button>Заказать</button>
+                        <button id="desc-button">Заказать</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="order-page">
+<div class="order-page" id="order-page">
     <div class="wrapper">
         <div class="order-page__content-container">
             <div class="order-page__main-header">
@@ -213,38 +213,35 @@
             <div class="order-page__menu-header">
                 <h1 class="order-menu-header">Выбор меню</h1>
             </div>
-            <!--<form action="https://formspree.io/f/xjvjpbok"
-                  method="POST" id="form">-->
-            <form>
                 <div class="order-page__dropdown-button">
-                    <button class="order-dropdown-button" onclick="orderDropdownFunc()">Палео-диета <i id="order-arrow"
+                    <button class="order-dropdown-button" id="paleod" onclick="orderDropdownFunc();changeValue(this.id)">Палео-диета <i id="order-arrow"
                                                                                                        class="arrow"></i>
                     </button>
                     <div class="order-dropdown-content" id="order-dropdown-menu">
-                        <a href="">диета аип</a>
-                        <a href="">Стол №5 по певзнеру</a>
-                        <a href="">вегетарианство</a>
+                        <a id="d-aipd" onclick="changeValue(this.id)">диета аип</a>
+                        <a id="table5d" onclick="changeValue(this.id)">Стол №5 по певзнеру</a>
+                        <a id="vegand" onclick="changeValue(this.id)">вегетарианство</a>
                     </div>
                 </div>
 
                 <div class="order-page__buttons-row">
-                    <button value="Палео-диета" onclick="checkValue(this.value)" id="Paleo">
+                    <button value="Палео-диета" onclick="changeValue(this.id)" id="paleo">
                         ПАЛЕО-ДИЕТА
                     </button>
-                    <button value="Диета аип">ДИЕТА АИП</button>
-                    <button value="Стол №5 по певзнеру">СТОЛ №5 ПО ПЕВЗНЕРУ</button>
-                    <button value="Вегетарианство">ВЕГЕТАРИАНСТВО</button>
+                    <button value="Диета аип" onclick="changeValue(this.id)" id="d-aip">ДИЕТА АИП</button>
+                    <button value="Стол №5 по певзнеру" onclick="changeValue(this.id)" id="table5">СТОЛ №5 ПО ПЕВЗНЕРУ</button>
+                    <button value="Вегетарианство" onclick="changeValue(this.id)" id="vegan">ВЕГЕТАРИАНСТВО</button>
                 </div>
                 <div class="order-page__days-header">
                     <h1 class="order-days-header">Количество дней</h1>
                 </div>
                 <div class="order-page_config-container">
                     <div class="order-page__line-container">
-                        <div class="order-page__circle"></div>
-                        <div class="order-page__circle"></div>
-                        <div class="order-page__circle"></div>
-                        <div class="order-page__circle"></div>
-                        <div class="order-page__circle"></div>
+                        <div class="order-page__circle" id="1d" onclick="changeDaysValue(this.id)"></div>
+                        <div class="order-page__circle" id="5d" onclick="changeDaysValue(this.id)"></div>
+                        <div class="order-page__circle" id="7d" onclick="changeDaysValue(this.id)"></div>
+                        <div class="order-page__circle" id="14d" onclick="changeDaysValue(this.id)"></div>
+                        <div class="order-page__circle" id="30d" onclick="changeDaysValue(this.id)"></div>
                     </div>
                     <div class="order-page__line-text-container">
                         <div class="order-page__line-text">
@@ -264,10 +261,14 @@
                         </div>
                     </div>
                 </div>
-
+            <form id="form" action="https://formsubmit.co/norito235@gmail.com" method="POST">
                 <div class="order-page__user-contacts">
-                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
-                    <input type="tel" id="phone" name="phone" placeholder="+7 (999) 999 99 99" required>
+                    <input type="hidden" name="_next" value="http://localhost:63342/batatTest/thankyou.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" id="diet" name="Диета" value="Палео-диета" style="display: none">
+                    <input type="text" id="days" name="Кол-во дней" value="1 день" style="display: none">
+                    <input type="text" id="name" name="Имя" placeholder="Ваше имя" required>
+                    <input type="tel" id="phone" name="Номер телефона" placeholder="+7 (999) 999 99 99" required>
                 </div>
                 <div class="order-page__order-button">
                     <button type="submit" class="order-page_button">Заказать</button>
@@ -323,7 +324,6 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

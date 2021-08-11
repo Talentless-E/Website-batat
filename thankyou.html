@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Batat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Raleway&display=swap"
+          rel="stylesheet"/>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .wrap{
+        max-width: 1240px;
+        margin: 0 auto;
+    }
+    @media (max-width: 425px)
+    {
+        .wrap{
+            max-width: 290px;
+        }
+    }
+    .ty-page{
+        width: 100%;
+        height: 100vh;
+        background-image: url("img/backImg.svg");
+    }
+    .thank-you-header{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        top: 50vh;
+        left: 50vh;
+        justify-content: center;
+        max-width: fit-content;
+
+        font-family: Didact Gothic, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 72px;
+        line-height: 120%;
+        /* or 86px */
+        margin: auto;
+        text-align: center;
+
+        color: #ffffff;
+    }
+    @media (max-width: 425px){
+        .thank-you-header{
+            font-size: 40px;
+        }
+    }
+    a{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-width: fit-content;
+        height: fit-content;
+        font-family: Raleway, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 27px;
+        line-height: 150%;
+        text-align: center;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        color: #FFFFFF;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+    @media (max-width: 425px){
+        a{
+            font-size: 16px;
+        }
+    }
+</style>
+<body>
+<div class="ty-page">
+    <div class="wrap">
+        <div class="thank-you-header">Спасибо, что оставили заявку!
+            <br>Скоро мы с вами свяжемся!
+        <br><a href="index.html">Вернуться назад</a></div>
+
+    </div>
+</div>
+
+</body>
+</html>
