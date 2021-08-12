@@ -38,23 +38,23 @@ $(".orderButton").click(function() {
 });
 
 function changeDaysValue(id){
-    if (id === '1d'){
+    if (id === 'd1'){
         document.getElementById('days').value = '1 день';
         console.log(document.getElementById('days').value)
     }
-    if (id === '5d'){
+    if (id === 'd5'){
         document.getElementById('days').value = '5 дней';
         console.log(document.getElementById('days').value)
     }
-    if (id === '7d'){
+    if (id === 'd7'){
         document.getElementById('days').value = '7 дней';
         console.log(document.getElementById('days').value)
     }
-    if (id === '14d'){
+    if (id === 'd14'){
         document.getElementById('days').value = '14 дней';
         console.log(document.getElementById('days').value)
     }
-    if (id === '30d'){
+    if (id === 'd30'){
         document.getElementById('days').value = '30 дней';
         console.log(document.getElementById('days').value)
     }

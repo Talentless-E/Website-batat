@@ -225,23 +225,50 @@
                 </div>
 
                 <div class="order-page__buttons-row">
-                    <button value="Палео-диета" onclick="changeValue(this.id)" id="paleo">
-                        ПАЛЕО-ДИЕТА
-                    </button>
-                    <button value="Диета аип" onclick="changeValue(this.id)" id="d-aip">ДИЕТА АИП</button>
-                    <button value="Стол №5 по певзнеру" onclick="changeValue(this.id)" id="table5">СТОЛ №5 ПО ПЕВЗНЕРУ</button>
-                    <button value="Вегетарианство" onclick="changeValue(this.id)" id="vegan">ВЕГЕТАРИАНСТВО</button>
+                    <input type="radio" name="select" id="paleo" onclick="changeValue(this.id)" checked>
+                    <input type="radio" name="select" id="d-aip" onclick="changeValue(this.id)">
+                    <input type="radio" name="select" id="table5" onclick="changeValue(this.id)" >
+                    <input type="radio" name="select" id="vegan"onclick="changeValue(this.id)">
+
+                    <label for="paleo" class="option day-option-1">
+                        <span>Палео-диета</span>
+                    </label>
+                    <label for="d-aip" class="option day-option-2">
+                        <span>Диета-аип</span>
+                    </label>
+                    <label for="table5" class="option day-option-3">
+                        <span>Стол №5 по певзнеру</span>
+                    </label>
+                    <label for="vegan" class="option day-option-4">
+                        <span>Вегетарианство</span>
+                    </label>
                 </div>
                 <div class="order-page__days-header">
                     <h1 class="order-days-header">Количество дней</h1>
                 </div>
                 <div class="order-page_config-container">
                     <div class="order-page__line-container">
-                        <div class="order-page__circle" id="1d" onclick="changeDaysValue(this.id)"></div>
-                        <div class="order-page__circle" id="5d" onclick="changeDaysValue(this.id)"></div>
-                        <div class="order-page__circle" id="7d" onclick="changeDaysValue(this.id)"></div>
-                        <div class="order-page__circle" id="14d" onclick="changeDaysValue(this.id)"></div>
-                        <div class="order-page__circle" id="30d" onclick="changeDaysValue(this.id)"></div>
+                        <input type="radio" name="day-select" id="d1" checked onclick="changeDaysValue(this.id)">
+                        <input type="radio" name="day-select" id="d5" onclick="changeDaysValue(this.id)">
+                        <input type="radio" name="day-select" id="d7" onclick="changeDaysValue(this.id)">
+                        <input type="radio" name="day-select" id="d14" onclick="changeDaysValue(this.id)">
+                        <input type="radio" name="day-select" id="d30" onclick="changeDaysValue(this.id)">
+
+                        <label for="d1" class="option day-option-1">
+                            <span></span>
+                        </label>
+                        <label for="d5" class="option day-option-2">
+                            <span></span>
+                        </label>
+                        <label for="d7" class="option day-option-3">
+                            <span></span>
+                        </label>
+                        <label for="d14" class="option day-option-4">
+                            <span></span>
+                        </label>
+                        <label for="d30" class="option day-option-5">
+                            <span></span>
+                        </label>
                     </div>
                     <div class="order-page__line-text-container">
                         <div class="order-page__line-text">
